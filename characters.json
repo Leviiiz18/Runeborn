@@ -50,6 +50,12 @@
         "count": 3,
         "prefix": "j_up"
       },
+      "roll": {
+        "folder": "roll",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/roll",
+        "count": 8,
+        "prefix": "roll"
+      },
       "run": {
         "folder": "run",
         "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/run",
@@ -90,6 +96,12 @@
         "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/03_jump_up",
         "count": 3,
         "prefix": "jump_up"
+      },
+      "roll": {
+        "folder": "04_roll",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/04_roll",
+        "count": 8,
+        "prefix": "roll"
       },
       "attack": {
         "folder": "05_1_atk",
@@ -180,6 +192,12 @@
         "count": 3,
         "prefix": "j_up"
       },
+      "roll": {
+        "folder": "roll",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/roll",
+        "count": 6,
+        "prefix": "roll"
+      },
       "run": {
         "folder": "run",
         "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/run",
@@ -245,6 +263,12 @@
         "count": 3,
         "prefix": "jump_up"
       },
+      "roll": {
+        "folder": "slide_loop",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/slide_loop",
+        "count": 4,
+        "prefix": "slide_loop"
+      },
       "run": {
         "folder": "run",
         "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run",
@@ -285,6 +309,12 @@
         "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/03_jump_up",
         "count": 3,
         "prefix": "03_jump_up"
+      },
+      "roll": {
+        "folder": "04_roll",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/04_roll",
+        "count": 7,
+        "prefix": "04_roll"
       },
       "attack": {
         "folder": "07_1_atk",
@@ -350,6 +380,12 @@
         "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/05_j_down",
         "count": 3,
         "prefix": "j_down"
+      },
+      "roll": {
+        "folder": "06_tumble",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/06_tumble",
+        "count": 6,
+        "prefix": "tumble"
       },
       "attack": {
         "folder": "07_1_atk",
@@ -439,6 +475,12 @@
         "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/j_up",
         "count": 3,
         "prefix": "j_up"
+      },
+      "roll": {
+        "folder": "roll",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/roll",
+        "count": 6,
+        "prefix": "roll"
       },
       "run": {
         "folder": "run",

@@ -12,7 +12,8 @@ let gameRunning = false;
 const keys = {
     left: false, right: false, up: false,
     attack: false, attack2: false, attack3: false,
-    special: false, defend: false
+    special: false, defend: false,
+    roll: false
 };
 
 window.addEventListener('keydown', (e) => {
@@ -24,6 +25,7 @@ window.addEventListener('keydown', (e) => {
     if (e.code === 'KeyH') keys.attack3 = true;
     if (e.code === 'KeyX') keys.special = true;
     if (e.code === 'KeyC') keys.defend = true;
+    if (e.code === 'KeyR' || e.code === 'ShiftLeft' || e.code === 'ShiftRight') keys.roll = true;
 });
 
 window.addEventListener('keyup', (e) => {
@@ -35,6 +37,7 @@ window.addEventListener('keyup', (e) => {
     if (e.code === 'KeyH') keys.attack3 = false;
     if (e.code === 'KeyX') keys.special = false;
     if (e.code === 'KeyC') keys.defend = false;
+    if (e.code === 'KeyR' || e.code === 'ShiftLeft' || e.code === 'ShiftRight') keys.roll = false;
 });
 
 // --- Boot & Character Select ---
@@ -134,6 +137,7 @@ class Player {
         // Action locks
         this.isAttacking = false;
         this.isDefending = false;
+        this.isRolling = false;
         
         this.frameWidth = 288;
         this.frameHeight = 128;
@@ -143,7 +147,7 @@ class Player {
         if (!imageLoaded) return;
         
         // Horizontal Movement
-        if (!this.isAttacking && !this.isDefending) {
+        if (!this.isAttacking && !this.isDefending && !this.isRolling) {
             if (keys.left) {
                 this.vx = -this.speed;
                 this.facingRight = false;
@@ -169,6 +173,10 @@ class Player {
                     this.triggerAction('attack3');
                 } else if (keys.special && animConfig.special) {
                     this.triggerAction('special');
+                } else if (keys.roll && animConfig.roll) {
+                    this.isRolling = true;
+                    this.frameIndex = 0;
+                    this.vx = this.facingRight ? this.speed * 2 : -this.speed * 2;
                 } else if (keys.defend && animConfig.defend) {
                     this.isDefending = true;
                     this.vx = 0;
@@ -204,7 +212,9 @@ class Player {
 
         // State Machine
         let nextState = 'idle';
-        if (this.isAttacking) {
+        if (this.isRolling) {
+            nextState = 'roll';
+        } else if (this.isAttacking) {
             nextState = this.currentAttackState;
         } else if (this.isDefending) {
             nextState = 'defend';
@@ -254,7 +264,11 @@ class Player {
             let numFrames = animData ? animData.count : 1;
             
             if (this.frameIndex >= numFrames) {
-                if (this.isAttacking) {
+                if (this.isRolling) {
+                    this.isRolling = false;
+                    this.frameIndex = 0;
+                    this.vx = 0;
+                } else if (this.isAttacking) {
                     this.isAttacking = false;
                     this.frameIndex = 0;
                 } else if (this.state === 'jump_up' || this.state === 'jump_down') {

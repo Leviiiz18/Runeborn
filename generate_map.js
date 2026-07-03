@@ -48,6 +48,7 @@ for (let c of chars) {
                 else if (folderLower.includes('sp_atk') || folderLower.match(/^sp_atk/)) stdName = 'special';
                 else if (folderLower.includes('defend')) stdName = 'defend';
                 else if (folderLower.includes('air_atk')) stdName = 'air_atk';
+                else if (folderLower.includes('roll') || folderLower.includes('tumble') || folderLower.includes('slide')) stdName = 'roll';
                 
                 if (stdName) {
                     out[c].anims[stdName] = {
