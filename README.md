@@ -1,7 +1,9 @@
 <div align="center">
-  <img src="public/bg.png" alt="Runeborn Banner" width="100%" />
+  <img src="public/logo.png" alt="Runeborn Logo" width="600" />
+  <br/><br/>
+  <img src="public/bg.png" alt="Runeborn Banner" width="100%" style="border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.5);" />
   
-  <br/>
+  <br/><br/>
   <h1>⚔️ RUNEBORN ⚔️</h1>
   <p><strong>A Next-Gen Cyber-Arcane 2D Fighting Experience</strong></p>
   
@@ -34,24 +36,42 @@ What makes Runeborn truly unique is its **Hardware Integration**. Players can di
 ## 🤺 The Champions (Elementals)
 Choose your fighter from an elite roster of elemental warriors. Each character is painstakingly animated frame-by-frame and rendered natively onto the canvas.
 
-| Element | Champion | Playstyle | Signature Color |
-| :---: | :--- | :--- | :---: |
-| 🔥 | **Fire Knight** | Aggressive, High Damage | Crimson Red (`#DC143C`) |
-| 💧 | **Water Priestess** | Fluid strikes, Area Control | Cyan (`#00fbfb`) |
-| 🍃 | **Earth Mauler** | Defensive, Heavy Hits | Emerald Green (`#00ff00`) |
-| 💨 | **Wind Assassin** | Fast movement, Evasion | Silver (`#ffffff`) |
-| ⚙️ | **Metal Guardian** | Unstoppable armored force | Slate Gray (`#aaaaaa`) |
-| 💎 | **Crystal Mage** | Ranged zoning, Trap placement | Neon Magenta (`#ff00ff`) |
+| Preview | Element | Champion | Playstyle | Signature Color |
+| :---: | :---: | :--- | :--- | :---: |
+| <img src="public/elementals/Elementals_fire_knight_FREE_v1.1/gifs/01_idle.gif" width="80" /> | 🔥 | **Fire Knight** | Aggressive, High Damage | Crimson Red (`#DC143C`) |
+| <img src="public/elementals/Elementals_water_priestess_FREE_v1.1/gifs/01_idle.gif" width="80" /> | 💧 | **Water Priestess** | Fluid strikes, Area Control | Cyan (`#00fbfb`) |
+| <img src="public/elementals/Elementals_ground_monk_FREE_v1.3/gifs/01_idle.gif" width="80" /> | 🍃 | **Earth Mauler** | Defensive, Heavy Hits | Emerald Green (`#00ff00`) |
+| <img src="public/elementals/elementals_wind_hashashin_FREE_v1.1/gifs/01_idle.gif" width="80" /> | 💨 | **Wind Assassin** | Fast movement, Evasion | Silver (`#ffffff`) |
+| <img src="public/elementals/Elementals_metal_bladekeeper_FREE_v1.1/gifs reference/01_idle.gif" width="80" /> | ⚙️ | **Metal Guardian** | Unstoppable armored force | Slate Gray (`#aaaaaa`) |
+| <img src="public/elementals/Elementals_Crystal_Mauler_Free_v1.0/gif_samples/idle.gif" width="80" /> | 💎 | **Crystal Mage** | Ranged zoning, Trap placement | Neon Magenta (`#ff00ff`) |
 
 ---
 
 ## 🗺️ The Arenas
-Step into beautiful, dynamic battlegrounds featuring cinematic backgrounds and distinct atmospheric lighting:
+Step into beautiful, dynamic battlegrounds featuring cinematic backgrounds and distinct atmospheric lighting.
 
-1.  🌊 **Water Arena**: A mystic, cascading waterfall temple.
-2.  ❄️ **Frozen Ruins**: Chilling ancient structures buried in ice.
-3.  🌋 **Volcanic Fortress**: A highly volatile, magma-filled battleground.
-4.  👑 **Royal Arena**: The prestigious, grand coliseum of the elites.
+<table align="center" style="border-collapse: collapse; border: none;">
+  <tr>
+    <td align="center" style="border: none; padding: 10px;">
+      <img src="assets/water_areana.png" width="400" style="border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.5);" /><br/>
+      <b>🌊 Water Arena</b>
+    </td>
+    <td align="center" style="border: none; padding: 10px;">
+      <img src="assets/frozen_arena.png" width="400" style="border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.5);" /><br/>
+      <b>❄️ Frozen Ruins</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border: none; padding: 10px;">
+      <img src="assets/arena_volcano.png" width="400" style="border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.5);" /><br/>
+      <b>🌋 Volcanic Fortress</b>
+    </td>
+    <td align="center" style="border: none; padding: 10px;">
+      <img src="assets/Royal_arean.png" width="400" style="border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.5);" /><br/>
+      <b>👑 Royal Arena</b>
+    </td>
+  </tr>
+</table>
 
 ---
 
