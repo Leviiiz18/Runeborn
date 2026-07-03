@@ -1,8 +1,4 @@
 <div align="center">
-  <img src="public/logo.png" alt="Runeborn Logo" width="600" />
-  <br/><br/>
-  <img src="public/bg.png" alt="Runeborn Banner" width="100%" style="border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.5);" />
-  
   <br/><br/>
   <h1>⚔️ RUNEBORN ⚔️</h1>
   <p><strong>A Next-Gen Cyber-Arcane 2D Fighting Experience</strong></p>
