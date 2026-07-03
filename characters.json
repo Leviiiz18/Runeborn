@@ -1,0 +1,457 @@
+{
+  "Elementals_Crystal_Mauler_Free_v1.0": {
+    "name": "Elementals_Crystal_Mauler_Free_v1.0",
+    "anims": {
+      "attack": {
+        "folder": "1_atk",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/1_atk",
+        "count": 7,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "2_atk",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/2_atk",
+        "count": 7,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "3_atk",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/3_atk",
+        "count": 17,
+        "prefix": "3_atk"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/air_atk",
+        "count": 8,
+        "prefix": "air_atk"
+      },
+      "defend": {
+        "folder": "defend",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/defend",
+        "count": 9,
+        "prefix": "defend"
+      },
+      "idle": {
+        "folder": "idle",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/idle",
+        "count": 8,
+        "prefix": "idle"
+      },
+      "jump_down": {
+        "folder": "j_down",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/j_down",
+        "count": 3,
+        "prefix": "j_down"
+      },
+      "jump_up": {
+        "folder": "j_up",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/j_up",
+        "count": 3,
+        "prefix": "j_up"
+      },
+      "run": {
+        "folder": "run",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/run",
+        "count": 8,
+        "prefix": "run"
+      },
+      "special": {
+        "folder": "sp_atk",
+        "path": "elementals/Elementals_Crystal_Mauler_Free_v1.0/animations/PNG/sp_atk",
+        "count": 15,
+        "prefix": "sp_atk"
+      }
+    }
+  },
+  "Elementals_fire_knight_FREE_v1.1": {
+    "name": "Elementals_fire_knight_FREE_v1.1",
+    "anims": {
+      "idle": {
+        "folder": "01_idle",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/01_idle",
+        "count": 8,
+        "prefix": "idle"
+      },
+      "run": {
+        "folder": "02_run",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/02_run",
+        "count": 8,
+        "prefix": "run"
+      },
+      "jump_down": {
+        "folder": "03_jump_down",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/03_jump_down",
+        "count": 3,
+        "prefix": "jump_down"
+      },
+      "jump_up": {
+        "folder": "03_jump_up",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/03_jump_up",
+        "count": 3,
+        "prefix": "jump_up"
+      },
+      "attack": {
+        "folder": "05_1_atk",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/05_1_atk",
+        "count": 11,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "06_2_atk",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/06_2_atk",
+        "count": 19,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "07_3_atk",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/07_3_atk",
+        "count": 28,
+        "prefix": "3_atk"
+      },
+      "special": {
+        "folder": "08_sp_atk",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/08_sp_atk",
+        "count": 18,
+        "prefix": "sp_atk"
+      },
+      "defend": {
+        "folder": "09_defend",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/09_defend",
+        "count": 10,
+        "prefix": "defend"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_fire_knight_FREE_v1.1/png/fire_knight/air_atk",
+        "count": 8,
+        "prefix": "air_atk"
+      }
+    }
+  },
+  "Elementals_ground_monk_FREE_v1.3": {
+    "name": "Elementals_ground_monk_FREE_v1.3",
+    "anims": {
+      "attack": {
+        "folder": "1_atk",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/1_atk",
+        "count": 6,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "2_atk",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/2_atk",
+        "count": 12,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "3_atk",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/3_atk",
+        "count": 23,
+        "prefix": "3_atk"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/air_atk",
+        "count": 7,
+        "prefix": "air_atk"
+      },
+      "defend": {
+        "folder": "defend",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/defend",
+        "count": 13,
+        "prefix": "defend"
+      },
+      "idle": {
+        "folder": "idle",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/idle",
+        "count": 6,
+        "prefix": "idle"
+      },
+      "jump_down": {
+        "folder": "j_down",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/j_down",
+        "count": 3,
+        "prefix": "j_down"
+      },
+      "jump_up": {
+        "folder": "j_up",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/j_up",
+        "count": 3,
+        "prefix": "j_up"
+      },
+      "run": {
+        "folder": "run",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/run",
+        "count": 8,
+        "prefix": "run"
+      },
+      "special": {
+        "folder": "sp_atk",
+        "path": "elementals/Elementals_ground_monk_FREE_v1.3/png/sp_atk",
+        "count": 25,
+        "prefix": "sp_atk"
+      }
+    }
+  },
+  "Elementals_Leaf_ranger_Free_v1.0": {
+    "name": "Elementals_Leaf_ranger_Free_v1.0",
+    "anims": {
+      "attack": {
+        "folder": "1_atk",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/1_atk",
+        "count": 10,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "2_atk",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/2_atk",
+        "count": 15,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "3_atk",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/3_atk",
+        "count": 12,
+        "prefix": "3_atk"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/air_atk",
+        "count": 10,
+        "prefix": "air_atk"
+      },
+      "defend": {
+        "folder": "defend_pose",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/defend_pose",
+        "count": 1,
+        "prefix": "defend_pose_.png"
+      },
+      "idle": {
+        "folder": "idle",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle",
+        "count": 12,
+        "prefix": "idle"
+      },
+      "jump_down": {
+        "folder": "jump_down",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_down",
+        "count": 3,
+        "prefix": "jump_down"
+      },
+      "jump_up": {
+        "folder": "jump_up",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/jump_up",
+        "count": 3,
+        "prefix": "jump_up"
+      },
+      "run": {
+        "folder": "run",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run",
+        "count": 10,
+        "prefix": "run"
+      },
+      "special": {
+        "folder": "sp_atk",
+        "path": "elementals/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/sp_atk",
+        "count": 17,
+        "prefix": "sp_atk"
+      }
+    }
+  },
+  "Elementals_metal_bladekeeper_FREE_v1.1": {
+    "name": "Elementals_metal_bladekeeper_FREE_v1.1",
+    "anims": {
+      "idle": {
+        "folder": "01_idle",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/01_idle",
+        "count": 8,
+        "prefix": "01_idle"
+      },
+      "run": {
+        "folder": "02_run",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/02_run",
+        "count": 8,
+        "prefix": "02_run"
+      },
+      "jump_down": {
+        "folder": "03_jump_down",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/03_jump_down",
+        "count": 3,
+        "prefix": "03_jump_down"
+      },
+      "jump_up": {
+        "folder": "03_jump_up",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/03_jump_up",
+        "count": 3,
+        "prefix": "03_jump_up"
+      },
+      "attack": {
+        "folder": "07_1_atk",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/07_1_atk",
+        "count": 6,
+        "prefix": "07_1_atk"
+      },
+      "attack2": {
+        "folder": "08_2_atk",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/08_2_atk",
+        "count": 8,
+        "prefix": "08_2_atk"
+      },
+      "attack3": {
+        "folder": "09_3_atk",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/09_3_atk",
+        "count": 18,
+        "prefix": "09_3_atk"
+      },
+      "special": {
+        "folder": "10_sp_atk",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/10_sp_atk",
+        "count": 11,
+        "prefix": "10_sp_atk"
+      },
+      "defend": {
+        "folder": "11_defend",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/11_defend",
+        "count": 12,
+        "prefix": "11_defend"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/air_atk",
+        "count": 8,
+        "prefix": "air_atk1.png"
+      }
+    }
+  },
+  "Elementals_water_priestess_FREE_v1.1": {
+    "name": "Elementals_water_priestess_FREE_v1.1",
+    "anims": {
+      "idle": {
+        "folder": "01_idle",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/01_idle",
+        "count": 8,
+        "prefix": "idle"
+      },
+      "run": {
+        "folder": "02_walk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/02_walk",
+        "count": 10,
+        "prefix": "walk"
+      },
+      "jump_up": {
+        "folder": "04_j_up",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/04_j_up",
+        "count": 3,
+        "prefix": "j_up"
+      },
+      "jump_down": {
+        "folder": "05_j_down",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/05_j_down",
+        "count": 3,
+        "prefix": "j_down"
+      },
+      "attack": {
+        "folder": "07_1_atk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/07_1_atk",
+        "count": 7,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "08_2_atk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/08_2_atk",
+        "count": 21,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "09_3_atk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/09_3_atk",
+        "count": 27,
+        "prefix": "3_atk"
+      },
+      "special": {
+        "folder": "10_sp_atk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/10_sp_atk",
+        "count": 32,
+        "prefix": "sp_atk"
+      },
+      "defend": {
+        "folder": "12_defend",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/12_defend",
+        "count": 12,
+        "prefix": "defend"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/Elementals_water_priestess_FREE_v1.1/png/air_atk",
+        "count": 8,
+        "prefix": "air_atk"
+      }
+    }
+  },
+  "elementals_wind_hashashin_FREE_v1.1": {
+    "name": "elementals_wind_hashashin_FREE_v1.1",
+    "anims": {
+      "attack": {
+        "folder": "1_atk",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/1_atk",
+        "count": 8,
+        "prefix": "1_atk"
+      },
+      "attack2": {
+        "folder": "2_atk",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/2_atk",
+        "count": 18,
+        "prefix": "2_atk"
+      },
+      "attack3": {
+        "folder": "3_atk",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/3_atk",
+        "count": 26,
+        "prefix": "3_atk"
+      },
+      "air_atk": {
+        "folder": "air_atk",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/air_atk",
+        "count": 7,
+        "prefix": "air_atk"
+      },
+      "defend": {
+        "folder": "defend",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/defend",
+        "count": 8,
+        "prefix": "defend"
+      },
+      "idle": {
+        "folder": "idle",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/idle",
+        "count": 8,
+        "prefix": "idle"
+      },
+      "jump_down": {
+        "folder": "j_down",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/j_down",
+        "count": 3,
+        "prefix": "j_down"
+      },
+      "jump_up": {
+        "folder": "j_up",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/j_up",
+        "count": 3,
+        "prefix": "j_up"
+      },
+      "run": {
+        "folder": "run",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/run",
+        "count": 8,
+        "prefix": "run"
+      },
+      "special": {
+        "folder": "sp_atk",
+        "path": "elementals/elementals_wind_hashashin_FREE_v1.1/png/sp_atk",
+        "count": 30,
+        "prefix": "sp_atk"
+      }
+    }
+  }
+}

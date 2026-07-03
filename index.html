@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Action Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 { margin-top: 20px; }
+        
+        #gameContainer {
+            display: none; /* Hidden until character is selected */
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        canvas {
+            border: 2px solid #333;
+            background-color: #2a2a4a;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .controls {
+            margin-top: 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        /* Character Select Overlay */
+        #charSelectMenu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(25, 25, 45, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 80%;
+            max-width: 800px;
+        }
+        #charSelectMenu h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+        #charList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .char-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+        }
+        .char-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <h1>Wizard Action Game</h1>
+    
+    <!-- Character Select -->
+    <div id="charSelectMenu">
+        <h2>Select Your Elemental</h2>
+        <div id="charList">
+            <!-- Buttons dynamically generated here -->
+            <p>Loading characters...</p>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="gameContainer">
+        <button id="connectBtn" style="padding: 10px 20px; font-size: 16px; background-color: #ff9900; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold;">Connect Gyro (Arduino)</button>
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        <div class="controls">
+            <p><strong>A/D</strong> to Move | <strong>W</strong> to Jump</p>
+            <p><strong>F</strong>: Atk 1 (or Air Atk in air) | <strong>G</strong>: Atk 2 | <strong>H</strong>: Atk 3 | <strong>X</strong>: Special Atk | <strong>C</strong>: Defend</p>
+            <p><strong>Gyro Controls:</strong> LEFT/RIGHT to Move | UP to Jump | CLOCKWISE to Attack</p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
