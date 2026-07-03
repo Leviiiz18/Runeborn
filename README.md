@@ -1,4 +1,6 @@
 <div align="center">
+  <img src="public/elementals/Elementals_fire_knight_FREE_v1.1/gifs/00_all_animations_fire_FREE.gif" alt="Fire Knight" height="200" />
+  <img src="public/elementals/Elementals_water_priestess_FREE_v1.1/gifs/00_all_animations_FREE.gif" alt="Water Priestess" height="200" />
   <br/><br/>
   <h1>⚔️ RUNEBORN ⚔️</h1>
   <p><strong>A Next-Gen Cyber-Arcane 2D Fighting Experience</strong></p>
