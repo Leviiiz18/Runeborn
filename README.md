@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="public/elementals/Elementals_fire_knight_FREE_v1.1/gifs/00_all_animations_fire_FREE.gif" alt="Fire Knight" height="200" />
-  <img src="public/elementals/Elementals_water_priestess_FREE_v1.1/gifs/00_all_animations_FREE.gif" alt="Water Priestess" height="200" />
+  <a href="https://github.com/Leviiiz18/Runeborn">
+    <img src="https://readme-typing-svg.demolab.com?font=Cinzel&weight=700&size=50&pause=1000&color=E6B75A&center=true&vCenter=true&width=800&height=100&lines=RUNEBORN;CYBER-ARCANE+FIGHTER;ESP32+MOTION+CONTROLS;HTML5+CANVAS+ENGINE" alt="Typing SVG" />
+  </a>
   <br/><br/>
   <h1>⚔️ RUNEBORN ⚔️</h1>
   <p><strong>A Next-Gen Cyber-Arcane 2D Fighting Experience</strong></p>
