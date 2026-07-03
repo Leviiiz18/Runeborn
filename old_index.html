@@ -451,7 +451,7 @@
     <!-- Game Container -->
     <div id="gameContainer" class="screen">
         <button id="connectBtn" style="display:none;">Connect Gyro</button>
-        <video id="bgVideo" autoplay muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom center; z-index: 0; display: none;"></video>
+        <video id="bgVideo" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom center; z-index: 0; display: none;"></video>
         <canvas id="gameCanvas" style="background-color: transparent; position: relative; z-index: 1;"></canvas>
         
         <div id="hud" style="z-index: 2;">
@@ -493,15 +493,6 @@
 
         let selectedArena = '';
         window.selectedCharacter = ''; // Expose to game.js
-
-        // Custom smooth loop for MP4 backgrounds
-        document.getElementById('bgVideo').addEventListener('timeupdate', function() {
-            // Jump back slightly before the end to skip MP4 decoding gap
-            if (this.currentTime >= this.duration - 0.1) {
-                this.currentTime = 0.05; // Skip first few blank frames
-                this.play().catch(e => console.log(e));
-            }
-        });
 
         function selectArena(bgUrl) {
             selectedArena = bgUrl;

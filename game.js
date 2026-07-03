@@ -649,6 +649,8 @@ function gameLoop() {
     // Disable image smoothing for crisp pixel art
     ctx.imageSmoothingEnabled = false;
 
+    let matchEnded = false;
+
     for (let i = entities.length - 1; i >= 0; i--) {
         let ent = entities[i];
         if (ent.active) {
@@ -656,6 +658,14 @@ function gameLoop() {
             ent.draw(ctx);
         } else {
             entities.splice(i, 1);
+        }
+        if (ent.isDead) matchEnded = true;
+    }
+    
+    if (matchEnded) {
+        let bgVideo = document.getElementById('bgVideo');
+        if (bgVideo && !bgVideo.paused) {
+            bgVideo.pause();
         }
     }
     
