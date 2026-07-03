@@ -3,116 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wizard Action Game</title>
+    <title>RUNEBORN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Alpha Spike';
+            src: url('AlphaSpike.ttf') format('truetype');
+        }
+
+        :root {
+            --gunmetal: #2B2E38;
+            --dark-slate: #252833;
+            --gold: #E6B75A;
+            --crimson: #B33939;
+            --emerald: #45D48A;
+            --ice-blue: #49C5FF;
+            --font-main: 'Alpha Spike', 'Cinzel', serif;
+            --font-ui: 'Cinzel', sans-serif;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #222;
+            background-color: #000;
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-ui);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        h1 { margin-top: 20px; }
-        
-        #gameContainer {
-            display: none; /* Hidden until character is selected */
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        canvas {
-            border: 2px solid #333;
-            background-color: #2a2a4a;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .controls {
-            margin-top: 15px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 8px;
+            width: 100vw;
+            height: 100vh;
         }
 
-        /* Character Select Overlay */
-        #charSelectMenu {
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            z-index: 10;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        h1.title {
+            font-family: var(--font-main);
+            font-size: 5em;
+            letter-spacing: 8px;
+            text-shadow: 0 0 20px var(--gold);
+            color: var(--gold);
+            margin: 0;
+        }
+        
+        h2.subtitle {
+            font-family: var(--font-main);
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0 0 10px var(--ice-blue);
+            margin-bottom: 40px;
+        }
+
+        /* --- Animations --- */
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes fogMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        .fog-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=') repeat; /* Placeholder for fog texture */
+            opacity: 0.1;
+            pointer-events: none;
+            animation: fogMove 20s linear infinite;
+        }
+
+        /* --- Buttons & Menus --- */
+        .btn {
+            background: var(--gunmetal);
+            color: #fff;
+            border: 2px solid var(--gold);
+            padding: 15px 40px;
+            margin: 10px;
+            font-size: 24px;
+            font-family: var(--font-ui);
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            border-color: var(--ice-blue);
+            box-shadow: 0 0 20px var(--ice-blue);
+            color: var(--gold);
+        }
+
+        /* --- Specific Screens --- */
+        #splash-screen {
+            background-image: url('assets/splash_bg.png');
+            z-index: 50;
+        }
+        .start-prompt {
+            position: absolute;
+            bottom: 10%;
+            font-size: 1.5em;
+            letter-spacing: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        #main-menu {
+            background-image: url('assets/splash_bg.png');
+            z-index: 40;
+        }
+
+        #mode-select {
+            background-image: url('assets/splash_bg.png');
+            z-index: 30;
+        }
+        .mode-cards {
+            display: flex;
+            gap: 40px;
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            background: var(--dark-slate);
+            border: 2px solid var(--gunmetal);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: rgba(25, 25, 45, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px;
-            margin-top: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 80%;
-            max-width: 800px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        #charSelectMenu h2 {
+        .card:hover {
+            border-color: var(--ice-blue);
+            box-shadow: 0 0 30px var(--ice-blue);
+            transform: scale(1.05);
+        }
+        .card h3 {
+            font-family: var(--font-main);
             font-size: 2em;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #00d2ff;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+            color: var(--gold);
+        }
+
+        #charSelectMenu {
+            background: var(--dark-slate);
+            z-index: 20;
         }
         #charList {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
+            max-width: 1000px;
         }
+
         .char-btn {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
+            background: var(--gunmetal);
+            color: #fff;
+            border: 1px solid var(--gold);
+            padding: 15px 30px;
+            font-size: 18px;
+            font-family: var(--font-main);
+            letter-spacing: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+            position: relative;
+            overflow: hidden;
         }
+
         .char-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.6);
+            border-color: var(--ice-blue);
+            box-shadow: 0 0 20px var(--ice-blue);
+            color: var(--gold);
+            transform: scale(1.05);
         }
+
+
+        #arena-select {
+            background: var(--gunmetal);
+            z-index: 15;
+        }
+        .arena-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .arena-card {
+            width: 250px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid var(--gunmetal);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+        }
+        .arena-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+            transform: scale(1.05);
+        }
+        .arena-name {
+            background: rgba(0,0,0,0.7);
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+            font-family: var(--font-main);
+            color: var(--gold);
+        }
+
+        #loading-screen {
+            background: #000;
+            z-index: 60;
+        }
+        .loading-bar-container {
+            width: 600px;
+            height: 10px;
+            background: var(--gunmetal);
+            border: 1px solid var(--gold);
+            margin-top: 20px;
+        }
+        .loading-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--ice-blue);
+            box-shadow: 0 0 10px var(--ice-blue);
+            transition: width 0.1s;
+        }
+
+        /* --- Game Container & HUD --- */
+        #gameContainer {
+            z-index: 5;
+            background: #000;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: none;
+            background-size: cover;
+            background-position: bottom center;
+        }
+
+        #hud {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        .health-bar-container {
+            position: absolute;
+            top: 30px;
+            width: 350px;
+            height: 20px;
+            background: var(--dark-slate);
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        .health-bar-fill {
+            height: 100%;
+            background: var(--crimson);
+            box-shadow: 0 0 15px var(--crimson);
+            transition: width 0.1s linear;
+        }
+        #playerHealthContainer {
+            left: 50px;
+            border-right: none;
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        }
+        #dummyHealthContainer {
+            right: 50px;
+            border-left: none;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        #playerHealthFill { width: 100%; }
+        #dummyHealthFill { width: 100%; float: right; }
+
+        .hud-center-ornament {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 50px;
+            height: 50px;
+            background: var(--gunmetal);
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px var(--ice-blue);
+        }
+
+        .nameplate {
+            position: absolute;
+            top: 55px;
+            font-size: 24px;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 5px #000;
+            color: var(--gold);
+        }
+        #playerName { left: 50px; }
+        #dummyName { right: 50px; text-align: right; }
+
+        .skill-cluster {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            gap: 15px;
+        }
+        .skill-cluster.left { left: 30px; }
+        .skill-cluster.right { right: 30px; }
+
+        .skill-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid var(--gunmetal);
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #aaa;
+            box-shadow: 0 0 15px #000;
+            position: relative;
+        }
+        .skill-circle span.key {
+            font-size: 12px;
+            color: var(--gold);
+            position: absolute;
+            bottom: -20px;
+            letter-spacing: 2px;
+        }
+        .skill-circle.active {
+            border-color: var(--ice-blue);
+            box-shadow: 0 0 20px var(--ice-blue);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
-    <h1>Wizard Action Game</h1>
-    
+
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="screen active" onclick="showScreen('main-menu')">
+        <div class="fog-overlay"></div>
+        <h1 class="title">RUNEBORN</h1>
+        <div class="start-prompt">CLICK TO START</div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="main-menu" class="screen">
+        <div class="fog-overlay"></div>
+        <h1 class="title" style="margin-bottom: 50px;">RUNEBORN</h1>
+        <button class="btn" onclick="showScreen('mode-select')">Play</button>
+        <button class="btn">Settings</button>
+        <button class="btn">Credits</button>
+    </div>
+
+    <!-- Mode Select -->
+    <div id="mode-select" class="screen">
+        <div class="fog-overlay"></div>
+        <h2 class="subtitle">Select Game Mode</h2>
+        <div class="mode-cards">
+            <div class="card" onclick="showScreen('charSelectMenu')">
+                <h3>Single Player</h3>
+                <p>Training & Story</p>
+            </div>
+            <div class="card" style="opacity: 0.5; cursor: not-allowed;">
+                <h3>Multiplayer</h3>
+                <p>Coming Soon</p>
+            </div>
+        </div>
+        <button class="btn" style="margin-top: 50px;" onclick="showScreen('main-menu')">Back</button>
+    </div>
+
     <!-- Character Select -->
-    <div id="charSelectMenu">
-        <h2>Select Your Elemental</h2>
+    <div id="charSelectMenu" class="screen">
+        <h2 class="subtitle">Select Your Champion</h2>
         <div id="charList">
-            <!-- Buttons dynamically generated here -->
             <p>Loading characters...</p>
+        </div>
+        <button class="btn" style="margin-top: 50px;" onclick="showScreen('mode-select')">Back</button>
+    </div>
+
+    <!-- Arena Select -->
+    <div id="arena-select" class="screen">
+        <h2 class="subtitle">Select Arena</h2>
+        <div class="arena-cards">
+            <div class="arena-card" style="background-image: url('assets/arena_forest.png')" onclick="selectArena('assets/arena_forest.png')">
+                <div class="arena-name">Forest Temple</div>
+            </div>
+            <div class="arena-card" style="background-image: url('assets/arena_frozen.png')" onclick="selectArena('assets/arena_frozen.png')">
+                <div class="arena-name">Frozen Ruins</div>
+            </div>
+            <div class="arena-card" style="background-image: url('assets/arena_volcano.png')" onclick="selectArena('assets/arena_volcano.png')">
+                <div class="arena-name">Volcanic Fortress</div>
+            </div>
+            <div class="arena-card" style="background-image: url('assets/arena_royal.png')" onclick="selectArena('assets/arena_royal.png')">
+                <div class="arena-name">Royal Arena</div>
+            </div>
+        </div>
+        <button class="btn" style="margin-top: 50px;" onclick="showScreen('charSelectMenu')">Back</button>
+    </div>
+
+    <!-- Difficulty Select -->
+    <div id="difficulty-select" class="screen">
+        <h2 class="subtitle">Select Bot Difficulty</h2>
+        <div style="display: flex; gap: 20px;">
+            <button class="btn" style="border-color: var(--emerald);" onclick="selectDifficulty('EASY')">Easy</button>
+            <button class="btn" style="border-color: var(--gold);" onclick="selectDifficulty('MEDIUM')">Medium</button>
+            <button class="btn" style="border-color: var(--crimson);" onclick="selectDifficulty('HARD')">Hard</button>
+        </div>
+        <button class="btn" style="margin-top: 50px;" onclick="showScreen('arena-select')">Back</button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <h1 class="title">RUNEBORN</h1>
+        <p style="font-size: 20px; letter-spacing: 2px; color: var(--gold); margin-top: 50px;">PREPARING BATTLE...</p>
+        <div class="loading-bar-container">
+            <div id="loading-bar-fill" class="loading-bar-fill"></div>
         </div>
     </div>
 
     <!-- Game Container -->
-    <div id="gameContainer">
-        <button id="connectBtn" style="padding: 10px 20px; font-size: 16px; background-color: #ff9900; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold;">Connect Gyro (Arduino)</button>
-        <canvas id="gameCanvas" width="800" height="400"></canvas>
-        <div class="controls">
-            <p><strong>A/D</strong> to Move | <strong>W</strong> to Jump | <strong>Shift / R</strong> to Roll</p>
-            <p><strong>F</strong>: Atk 1 (or Air Atk in air) | <strong>G</strong>: Atk 2 | <strong>H</strong>: Atk 3 | <strong>X</strong>: Special Atk | <strong>C</strong>: Defend</p>
-            <p><strong>Gyro Controls:</strong> LEFT/RIGHT to Move | UP to Jump | CLOCKWISE to Attack</p>
+    <div id="gameContainer" class="screen">
+        <button id="connectBtn" style="display:none;">Connect Gyro</button>
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="hud">
+            <!-- Top Bar -->
+            <div id="playerHealthContainer" class="health-bar-container">
+                <div id="playerHealthFill" class="health-bar-fill"></div>
+            </div>
+            <div class="hud-center-ornament"></div>
+            <div id="dummyHealthContainer" class="health-bar-container">
+                <div id="dummyHealthFill" class="health-bar-fill"></div>
+            </div>
+
+            <div id="playerName" class="nameplate">PLAYER</div>
+            <div id="dummyName" class="nameplate">TARGET</div>
+
+            <!-- Bottom Left Skills -->
+            <div class="skill-cluster left">
+                <div class="skill-circle" id="ui-atk1">ATK1<span class="key">F</span></div>
+                <div class="skill-circle" id="ui-atk2">ATK2<span class="key">G</span></div>
+                <div class="skill-circle" id="ui-atk3">ATK3<span class="key">H</span></div>
+                <div class="skill-circle" id="ui-roll">ROLL<span class="key">↓</span></div>
+            </div>
+
+            <!-- Bottom Right Skills -->
+            <div class="skill-cluster right">
+                <div class="skill-circle" id="ui-proj">PROJ<span class="key">CTRL</span></div>
+                <div class="skill-circle" id="ui-trap">TRAP<span class="key">T</span></div>
+                <div class="skill-circle" id="ui-spec">SPEC<span class="key">X</span></div>
+                <div class="skill-circle" id="ui-def">DEF<span class="key">C</span></div>
+            </div>
         </div>
     </div>
+    
+    <script>
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        let selectedArena = '';
+        window.selectedCharacter = ''; // Expose to game.js
+
+        function selectArena(bgUrl) {
+            selectedArena = bgUrl;
+            document.getElementById('gameCanvas').style.backgroundImage = `url('${bgUrl}')`;
+            showScreen('difficulty-select');
+        }
+
+        window.botDifficulty = 'MEDIUM'; // Expose to game.js
+
+        function selectDifficulty(diff) {
+            window.botDifficulty = diff;
+            showScreen('loading-screen');
+            
+            // Simulate loading
+            let progress = 0;
+            let bar = document.getElementById('loading-bar-fill');
+            let interval = setInterval(() => {
+                progress += Math.random() * 20;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        showScreen('gameContainer');
+                        // Tell game.js to load the character
+                        if (typeof window.loadCharacterAssets === 'function') {
+                            window.loadCharacterAssets(window.selectedCharacter);
+                        }
+                    }, 500);
+                }
+                bar.style.width = progress + '%';
+            }, 200);
+        }
+    </script>
     <script src="game.js"></script>
 </body>
 </html>
