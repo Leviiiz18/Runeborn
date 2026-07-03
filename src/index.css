@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0A0A0B;
+  --color-gold: #FFD700;
+  --color-crimson: #DC143C;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Hanken Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background-color: var(--color-obsidian);
+  color: white;
+  margin: 0;
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+.glass-panel {
+  background: rgba(10, 10, 11, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(46, 46, 50, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-active {
+  background: rgba(10, 10, 11, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
+  border: 2px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-left: 2px solid var(--color-crimson);
+  color: white;
+  text-shadow: 0 0 10px rgba(220, 20, 60, 0.8);
+}
+
+/* GSAP Float Animation helper */
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(-50%); }
+  50% { transform: translateY(-15px) translateX(-50%); }
+  100% { transform: translateY(0px) translateX(-50%); }
+}

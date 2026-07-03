@@ -85,6 +85,47 @@ fetch('characters.json')
             btn.onclick = () => selectCharacter(charKey);
             charList.appendChild(btn);
         }
+
+        // --- Auto-start integration from React ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlChar = urlParams.get('char');
+        const urlArena = urlParams.get('arena');
+        const urlDiff = urlParams.get('diff') || 'MEDIUM';
+        const urlController = urlParams.get('controller');
+
+        if (urlChar && urlArena) {
+            window.selectedCharacter = urlChar;
+            window.botDifficulty = urlDiff;
+            animConfig = charactersData[urlChar].anims;
+            
+            // Show Game Container directly, hide others by removing 'active' classes
+            document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+            document.getElementById('gameContainer').classList.add('active');
+            
+            // Toggle controller button visibility
+            if (urlController === 'keyboard') {
+                document.getElementById('connectBtn').style.display = 'none';
+            } else {
+                document.getElementById('connectBtn').style.display = 'block';
+            }
+            
+            // Set Arena
+            let videoEl = document.getElementById('bgVideo');
+            let canvasEl = document.getElementById('gameCanvas');
+            
+            if (urlArena.endsWith('.mp4') || urlArena.endsWith('.webm')) {
+                videoEl.src = urlArena;
+                videoEl.style.display = 'block';
+                canvasEl.style.backgroundImage = 'none';
+                videoEl.play().catch(e => console.log('Video play error:', e));
+            } else {
+                videoEl.style.display = 'none';
+                videoEl.src = '';
+                canvasEl.style.backgroundImage = `url('${urlArena}')`;
+            }
+
+            loadCharacterAssets(urlChar);
+        }
     })
     .catch(err => {
         console.error(err);
