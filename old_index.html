@@ -258,14 +258,13 @@
         #gameContainer {
             z-index: 5;
             background: #000;
+            overflow: hidden;
         }
         canvas {
             width: 100%;
             height: 100%;
             display: block;
             border: none;
-            background-size: cover;
-            background-position: bottom center;
         }
 
         #hud {
@@ -452,6 +451,7 @@
     <div id="gameContainer" class="screen">
         <button id="connectBtn" style="display:none;">Connect Gyro</button>
         <video id="bgVideo" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom center; z-index: 0; display: none;"></video>
+        <div id="bgImage" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: bottom center; z-index: 0; display: none;"></div>
         <canvas id="gameCanvas" style="background-color: transparent; position: relative; z-index: 1;"></canvas>
         
         <div id="hud" style="z-index: 2;">
@@ -498,16 +498,18 @@
             selectedArena = bgUrl;
             let videoEl = document.getElementById('bgVideo');
             let canvasEl = document.getElementById('gameCanvas');
+            let bgImageEl = document.getElementById('bgImage');
             
             if (bgUrl.endsWith('.mp4') || bgUrl.endsWith('.webm')) {
                 videoEl.src = bgUrl;
                 videoEl.style.display = 'block';
-                canvasEl.style.backgroundImage = 'none';
+                bgImageEl.style.display = 'none';
                 videoEl.play().catch(e => console.log('Video play error:', e));
             } else {
                 videoEl.style.display = 'none';
                 videoEl.src = '';
-                canvasEl.style.backgroundImage = `url('${bgUrl}')`;
+                bgImageEl.style.display = 'block';
+                bgImageEl.style.backgroundImage = `url('${bgUrl}')`;
             }
             showScreen('difficulty-select');
         }
@@ -538,14 +540,16 @@
             }, 200);
         }
 
+                if (urlArena.endsWith('.mp4') || urlArena.endsWith('.webm')) {
                     videoEl.src = urlArena;
                     videoEl.style.display = 'block';
-                    canvasEl.style.backgroundImage = 'none';
+                    document.getElementById('bgImage').style.display = 'none';
                     videoEl.play().catch(e => console.log('Video play error:', e));
                 } else {
                     videoEl.style.display = 'none';
                     videoEl.src = '';
-                    canvasEl.style.backgroundImage = `url('${urlArena}')`;
+                    document.getElementById('bgImage').style.display = 'block';
+                    document.getElementById('bgImage').style.backgroundImage = `url('${urlArena}')`;
                 }
 
                 window.botDifficulty = urlDiff;

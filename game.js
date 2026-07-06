@@ -125,6 +125,24 @@ fetch('characters.json')
             }
 
             loadCharacterAssets(urlChar);
+            
+            // Set HUD Ability Icons
+            let charName = urlChar.split('_')[1].toLowerCase();
+            const setSkillIcon = (id, iconFile) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.style.backgroundImage = `url('/assets/icons/${charName}/${iconFile}')`;
+                    el.style.backgroundSize = 'cover';
+                    el.style.backgroundPosition = 'center';
+                    el.style.backgroundBlendMode = 'screen';
+                }
+            };
+            setSkillIcon('ui-atk1', '1_atk.png');
+            setSkillIcon('ui-atk2', '2_atk.png');
+            setSkillIcon('ui-atk3', '3_atk.png');
+            setSkillIcon('ui-def', 'defend.png');
+            setSkillIcon('ui-spec', 'sp_atk.png');
+            
         }
     })
     .catch(err => {
@@ -285,8 +303,9 @@ class Player extends Entity {
         if (opponent && !opponent.isDead && opponent.isAttacking && opponent.hitFrames) {
             if (opponent.hitFrames.includes(opponent.frameIndex)) {
                 let dist = Math.abs(this.x - opponent.x);
+                let distY = Math.abs(this.y - opponent.y);
                 let facingCorrectly = opponent.facingRight ? (this.x > opponent.x) : (this.x < opponent.x);
-                if (dist < 400 && facingCorrectly) {
+                if (dist < 400 && distY < 150 && facingCorrectly) {
                     this.takeDamage(10);
                     opponent.hitFrames = opponent.hitFrames.filter(f => f !== opponent.frameIndex);
                 }
@@ -614,7 +633,7 @@ class Trap extends Entity {
 
         if (this.isLanded && !this.isDetonating) {
             let target = this.owner === player ? dummy : player;
-            if (target && !target.isDead && Math.abs(this.x - target.x) < 150) {
+            if (target && !target.isDead && Math.abs(this.x - target.x) < 150 && Math.abs(this.y - target.y) < 150) {
                 this.isDetonating = true;
                 target.takeDamage(50);
                 if (animConfig.trap_detonate) {

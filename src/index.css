@@ -1,12 +1,73 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 @theme {
   --color-obsidian: #0A0A0B;
-  --color-gold: #FFD700;
+  --color-gold: #c5a059;
+  --color-gold-light: #e8d098;
+  --color-gold-dark: #8a6b32;
   --color-crimson: #DC143C;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Hanken Grotesk", sans-serif;
+  --color-cyan: #00f0ff;
+  --font-display: "Cinzel", serif;
+  --font-body: "Playfair Display", serif;
   --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background-color: var(--color-obsidian);
+  color: white;
+  margin: 0;
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+/* Elegant Fantasy Components */
+.fantasy-btn {
+  position: relative;
+  background: rgba(10, 15, 25, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  letter-spacing: 0.15em;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.fantasy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid var(--color-gold);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.fantasy-btn:hover {
+  background: rgba(15, 25, 40, 0.8);
+  border-color: rgba(197, 160, 89, 0.8);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.2), inset 0 0 15px rgba(197, 160, 89, 0.1);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(197, 160, 89, 0.6);
+}
+
+.fantasy-btn:hover::before {
+  opacity: 1;
+  transform: scale(0.98);
+}
+
+/* Elegant Diamond Motif */
+.diamond-accent {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px var(--color-gold-light);
+}
+
+/* Angled cut border */
+.angled-border {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
 
 body {
